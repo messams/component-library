@@ -4,12 +4,12 @@ const Badges = () => {
     const variants = ["default", "red", "yellow", "green", "lightBlue", "blue", "purple", "pink"] as const
 
     return (
-        <div className="w-full h-full container mx-auto px-4 py-12 flex flex-col">
+        <div className="h-full w-full flex flex-col">
             <h1 className="text-6xl font-black mb-16 text-left" style={{ fontFamily: "cursive" }}>
                 BADGES
             </h1>
 
-            <div className="space-y-12 w-full h-full flex flex-col items-center justify-center">
+            <div className="w-full h-full flex flex-col gap-16">
                 <div className="flex items-center gap-4">
                     <div className="w-32 text-4xl font-bold text-[#5e5d5d]" style={{ fontFamily: "cursive" }}>
                         Square

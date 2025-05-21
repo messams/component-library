@@ -2,8 +2,8 @@ import { Banner } from "../components/Banner";
 
 const Banners = () => {
     return (
-        <div className="container mx-auto py-12 px-4 w-full h-full">
-            <h1 className="text-6xl font-black mb-12 text-center" style={{ fontFamily: "'Permanent Marker', cursive" }}>
+        <div className="h-full w-full">
+            <h1 className="text-6xl font-black mb-16 text-left" style={{ fontFamily: "cursive" }}>
                 BANNERS
             </h1>
 
