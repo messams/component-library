@@ -1,41 +1,38 @@
-import clsx from "clsx";
+import { cn } from "../utils"
 
-const variants: Record<string, string> = {
-    gray: "bg-gray-100 text-gray-800",
-    red: "bg-red-100 text-red-800",
-    yellow: "bg-yellow-100 text-yellow-800",
-    green: "bg-green-100 text-green-800",
-    blue: "bg-blue-100 text-blue-800",
-    indigo: "bg-indigo-100 text-indigo-800",
-    purple: "bg-purple-100 text-purple-800",
-    pink: "bg-pink-100 text-pink-800",
-};
-
-const Badge = ({
-    children,
-    className,
-    shape = "square",
-    variant = "gray",
-    ...rest
-}: {
-    children: React.ReactNode,
-    className?: string,
-    shape?: "square" | "pill",
-    variant?: "gray" | "red" | "yellow" | "green" | "blue" | "indigo" | "purple" | "pink"
-}) => {
-
-    return (
-        <span
-            {...rest}
-            className={clsx(
-                "inline-block px-3 py-[2px] text-xs font-semibold",
-                shape === "square" ? "rounded-md" : "rounded-full",
-                variants[variant],
-                className
-            )}>
-            {children}
-        </span>
-    );
+interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
+    variant?: "default" | "red" | "yellow" | "green" | "lightBlue" | "blue" | "purple" | "pink"
+    shape?: "square" | "pill"
 }
 
-export default Badge;
+export function Badge({ className, variant = "default", shape = "square", children, ...props }: BadgeProps) {
+    const variantStyles = {
+        default: "bg-[#f3f4f6] text-[#1f2937]",
+        red: "bg-[#fee2e2] text-[#991b1b]",
+        yellow: "bg-[#fef3c7] text-[#92400e]",
+        green: "bg-[#d1fae5] text-[#065f46]",
+        lightBlue: "bg-[#dbeafe] text-[#1e40af]",
+        blue: "bg-[#e0e7ff] text-[#3730a3]",
+        purple: "bg-[#ede9fe] text-[#5b21b6]",
+        pink: "bg-[#fce7f3] text-[#9d174d]",
+    }
+
+    const shapeStyles = {
+        square: "rounded-md",
+        pill: "rounded-full",
+    }
+
+    return (
+        <div
+            className={cn(
+                "inline-flex items-center justify-center px-4 py-1 text-sm font-medium",
+                variantStyles[variant],
+                shapeStyles[shape],
+                className,
+            )}
+            {...props}
+        >
+            {children}
+        </div>
+    )
+}

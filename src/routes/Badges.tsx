@@ -1,42 +1,43 @@
-import Badge from "../components/Badge";
+import { Badge } from '../components/Badge';
 
 const Badges = () => {
-    return (
-        <div className="w-full h-full">
-            <div className="flex w-full items-center justify-between">
-                <h1 className={`text-2xl font-medium`}>Badges</h1>
-            </div>
-            <div className="h-full flex flex-col flex-wrap gap-4 mt-4 justify-center items-center">
-                <div className="flex flex-row flex-wrap gap-4 justify-center items-center">
-                    <h2 className="text-[#5E5D5D] font-semibold">
-                        Square
-                    </h2>
-                    <Badge variant="gray">Badge</Badge>
-                    <Badge variant="red">Badge</Badge>
-                    <Badge variant="yellow">Badge</Badge>
-                    <Badge variant="green">Badge</Badge>
-                    <Badge variant="blue">Badge</Badge>
-                    <Badge variant="indigo">Badge</Badge>
-                    <Badge variant="purple">Badge</Badge>
-                    <Badge variant="pink">Badge</Badge>
-                </div>
-                <div className="flex flex-row flex-wrap gap-4 justify-center items-center">
-                    <h2 className="text-[#5E5D5D] font-semibold">
-                        Pill
-                    </h2>
-                    <Badge shape="pill" variant="gray">Badge</Badge>
-                    <Badge shape="pill" variant="red">Badge</Badge>
-                    <Badge shape="pill" variant="yellow">Badge</Badge>
-                    <Badge shape="pill" variant="green">Badge</Badge>
-                    <Badge shape="pill" variant="blue">Badge</Badge>
-                    <Badge shape="pill" variant="indigo">Badge</Badge>
-                    <Badge shape="pill" variant="purple">Badge</Badge>
-                    <Badge shape="pill" variant="pink">Badge</Badge>
-                </div>
-            </div>
+    const variants = ["default", "red", "yellow", "green", "lightBlue", "blue", "purple", "pink"] as const
 
+    return (
+        <div className="w-full h-full container mx-auto px-4 py-12 flex flex-col">
+            <h1 className="text-6xl font-black mb-16 text-left" style={{ fontFamily: "cursive" }}>
+                BADGES
+            </h1>
+
+            <div className="space-y-12 w-full h-full flex flex-col items-center justify-center">
+                <div className="flex items-center gap-4">
+                    <div className="w-32 text-4xl font-bold text-[#5e5d5d]" style={{ fontFamily: "cursive" }}>
+                        Square
+                    </div>
+                    <div className="flex flex-wrap gap-4">
+                        {variants.map((variant) => (
+                            <Badge key={`square-${variant}`} variant={variant} shape="square">
+                                Badge
+                            </Badge>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <div className="w-32 text-4xl font-bold text-[#5e5d5d]" style={{ fontFamily: "cursive" }}>
+                        Pill
+                    </div>
+                    <div className="flex flex-wrap gap-4">
+                        {variants.map((variant) => (
+                            <Badge key={`pill-${variant}`} variant={variant} shape="pill">
+                                Badge
+                            </Badge>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
-    );
+    )
 }
 
 export default Badges;
