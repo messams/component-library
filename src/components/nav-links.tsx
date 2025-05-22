@@ -20,8 +20,8 @@ export default function NavLinks() {
           to={link.href}
           className={({ isActive }) =>
             clsx(
-              'flex h-[40px] grow items-center justify-center gap-2 rounded-md bg-(--fg-color) p-3 text-sm font-medium hover:bg-(--hover-bg-color) hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
-              isActive && 'bg-(--hover-bg-color) text-(--base-color)'
+              'flex h-[40px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 bg-neutral-200 dark:bg-neutral-900',
+              isActive && 'text-blue-600',
             )
           }
         >
